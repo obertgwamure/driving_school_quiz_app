@@ -1,0 +1,3 @@
+django
+PyQt6
+PyQt6-WebEngine

@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% load static %} {% block scripts %}
+<script src="{% static 'quizes/main.js' %}" defer></script>
+{% endblock scripts %} {% block title %} Home {% endblock title %} 
+{% block content %}
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="quizStartModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Start?</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body" id="modal-body-confirm"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          No
+        </button>
+        <button type="button" id="start-button" class="btn btn-success">
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-centered">
+  <div class="row">
+    <div class="col-sm-1 pt-5">
+      <img
+        class="img-fluid"
+        src="{% static 'images/site-assets/traffic.gif' %}"
+        alt="traffic light"
+      />
+    </div>
+    <div class="col-sm-9 mx-auto pt-5">
+      <h1 class="logo">Infinity Mirage <span class="text-dark">Tech</span></h1>
+      <h3>Driving Practice Exam</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 mx-auto pt-3">
+      <img
+        class="img-fluid"
+        src="{% static 'images/site-assets/red-car.gif' %}"
+        alt="image of red car"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 m-auto text-center">
+    <div class="h1">Practice Exams List</div>
+    {% for obj in object_list %}
+    <p>
+    <button
+      class="btn btn-link modal-button"
+      data-pk="{{ obj.pk }}"
+      data-quiz="{{ obj.name }}"
+      data-questions="{{ obj.number_of_questions }}"
+      data-difficulty="{{ obj.difficulty }}"
+      data-time="{{ obj.time }}"
+      data-pass="{{ obj.score_to_pass }}"
+      data-bs-toggle="modal"
+      data-bs-target="#quizStartModal"
+    >
+      {{ obj.name }}
+    </button>
+    </p>
+    {% endfor %}
+  </div>
+</div>
+ 
+{% endblock content %}

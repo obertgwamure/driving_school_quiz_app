@@ -1,0 +1,37 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'Jutsu-2.ico' %}"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- jquery -->
+    <script src="{% static 'jquery/jquery-3.5.1.min.js' %}"></script>
+
+    <!-- custom css & js-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+    <title>IM Tech Driving Practice Exam | {% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <div class="container mt-3">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+  </body>
+</html>
+
+

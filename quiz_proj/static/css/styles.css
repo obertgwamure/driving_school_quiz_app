@@ -1,0 +1,15 @@
+.not-visible {
+    display: none;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.logo {
+    font-size: 80px;
+    font-weight: 700;
+    color: red;
+}
+
